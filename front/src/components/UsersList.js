@@ -46,6 +46,7 @@ export default function UsersList() {
                     <h3 onClick={(e) => history.push('/user/' + e.target.innerText)} >{user.email } </h3>
                     Last login: {user.lastUpdate}, IP: {user.ip}, Logged: {user.loggedIn? 'True': 'False'}
                     <br />
+            <br/>
                     
                 </div>
             )}

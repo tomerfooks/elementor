@@ -1,9 +1,8 @@
 module.exports = (email) => {
     return new Promise((resolve, reject) => {
-    fetch('http://localhost:4000/users/logout', {
+    fetch('http://localhost:4000/users/logout/'+email, {
         method: 'POST',
         mode: 'cors',
-        body: JSON.stringify({ email})
     })
         .then((json) => json.json())
         .then((data) => {

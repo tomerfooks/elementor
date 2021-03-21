@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Context from './Context'
-
+import logoutUser from '../utils/logoutUser.js'
 
 export default function Header() {
   const context = useContext(Context)
   const logout = () => {
     console.log('Logging out..')
+    logoutUser(context.loggedUser.email)
     context.updateLoggedUser({})
   }
   useEffect(() => {}, [context.loggedUser])

@@ -41,8 +41,9 @@ module.exports = (app, Users) => {
         .catch((err) => res.send({ err }))
   })
 
-  app.post('/users/logout', (req, res) => {
-    logoutUser(req.body.email).then(reply=>res.send(reply)).catch(err=>res.send(err))
+  app.post('/users/logout/:email', (req, res) => {
+    const {email} = req.params
+    logoutUser(email,Users).then(reply=>res.send(reply)).catch(err=>res.send(err))
   })
 
 }

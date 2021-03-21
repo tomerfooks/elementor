@@ -27,6 +27,7 @@ module.exports = (email, pass, Users,req) => {
               email: data[0].email,
               token,
               ip: getIp(req),
+              loggedIn: true,
               lastUpdate: new Date(),
               loginCount:data[0].loginCount || 0,
               registrationDate: data[0].registrationDate,
