@@ -27,6 +27,7 @@ export default function UsersList() {
           })
             .then((json) => json.json())
             .then((data) => {
+                console.log('data',data)
                 setUsers(data)
                 setTimeout(()=>setUsers([]),5000)
             })
@@ -39,12 +40,19 @@ export default function UsersList() {
             <br/>
             <br/>
             <br/>
-            <br/>
             <h2>Recently Logged Users List (Past 5 mintues)</h2>
             {users.map(user =>
-                <div key={ user.registrationDate}className="user"><h3 onClick={(e)=>history.push('/user/'+ e.target.innerText) } >{recentlyLoggedIn(user)>=-10 ?user.email:''}</h3></div>
+                <div key={user.registrationDate} className="user">
+                    <h3 onClick={(e) => history.push('/user/' + e.target.innerText)} >{user.email } </h3>
+                    Last login: {user.lastUpdate}, IP: {user.ip}, Logged: {user.loggedIn? 'True': 'False'}
+                    <br />
+                    
+                </div>
             )}
             {error}
+            <br/>
+            <br/>
+
         </div>
     )
 }

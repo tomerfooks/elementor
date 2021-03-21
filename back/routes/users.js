@@ -1,5 +1,6 @@
 const createUser = require('../db/createUser')
 const loginUser = require('../db/loginUser')
+const logoutUser = require('../db/logoutUser')
 const auth = require('../utils/auth')
 
 module.exports = (app, Users) => {
@@ -38,6 +39,10 @@ module.exports = (app, Users) => {
       loginUser(req.body.email, req.body.pass, Users,req)
         .then((reply) => res.send({ reply }))
         .catch((err) => res.send({ err }))
+  })
+
+  app.post('/users/logout', (req, res) => {
+    logoutUser(req.body.email).then(reply=>res.send(reply)).catch(err=>res.send(err))
   })
 
 }

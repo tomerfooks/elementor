@@ -5,8 +5,8 @@ const validation = require('../utils/validation')
 
 module.exports = (email, pass, Users,req) => {
   return new Promise((resolve, reject) => {
-    // if (!validation('email', email))
-    // return reject({ err: 'Incorrect Email Address' })
+    if (!validation('email', email))
+    return reject({ err: 'Incorrect Email Address' })
     Users.find({ email })
       .toArray()
       .then((data) => {
@@ -19,7 +19,7 @@ module.exports = (email, pass, Users,req) => {
               Users.update(
                 { email: data[0].email },
                 // increment it's property called "loginCount" by 1
-                { $inc: { loginCount: 1 }, $set: { lastUpdate: new Date(), ip: getIp(req) } }
+                { $inc: { loginCount: 1 }, $set: { lastUpdate: new Date(), ip: getIp(req), loggedIn: true } }
             );
             const token = jwt.sign(data[0], 'elementor')
 

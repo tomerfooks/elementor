@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useHistory } from "react-router-dom";
+
 import Context from '../Context'
 import validation from '../../utils/validation'
-import Cookie from 'js-cookie'
 
 export default function Signup() {
   const context = useContext(Context)
@@ -9,6 +10,7 @@ export default function Signup() {
   const [pass, setPass] = useState('')
   const [pass2, setPass2] = useState('')
   const [error, setError] = useState('')
+  const history = useHistory()
 
   const checkout = (e) => {
     e.preventDefault()
@@ -26,7 +28,7 @@ export default function Signup() {
     else setError('')
 
     console.log('Creating User...')
-    let apiUrl ='http://localhost:4000'
+    let apiUrl = process.env.apiurl || 'http://localhost:4000'
 
     fetch(apiUrl + '/users/create', {
       method: 'POST',
@@ -39,10 +41,10 @@ export default function Signup() {
         if (data.hasOwnProperty('err')) return setError(<p>{data.err}</p>)
         console.log(data)
         if (data.hasOwnProperty('token')) {
-          Cookie.remove('token')
-          Cookie.set('token', data)
           context.updateLoggedUser(data)
           setError('Signed up succesfully')
+          history.push('/Users')
+
         } else
           setError(
             'There was a problem with your registration. '

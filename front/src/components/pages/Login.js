@@ -7,7 +7,9 @@ export default function Login() {
 	const context = useContext(Context)
 	const [ email, setEmail ] = useState('')
 	const [ pass, setPass ] = useState('')
+	const [error,setError] = useState('')
 	const history = useHistory()
+
 	const loginUser = () => {
 		console.log('Logging in...')
 		const apiUrl = 'http://localhost:4000'
@@ -19,6 +21,8 @@ export default function Login() {
 		})
 			.then((json) => json.json())
 			.then((data) => {
+				if(data.err) return setError('Wrong password')
+				console.log('Logged User: ',data.reply)
 				context.updateLoggedUser(data.reply)
 				history.push('/Users')
 			})
@@ -55,6 +59,7 @@ export default function Login() {
 			</button>
 			<br />
 			<br />
+			{error}
 		</div>
 	)
 }

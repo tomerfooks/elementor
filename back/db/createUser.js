@@ -22,6 +22,7 @@ module.exports = (email, pass, Users, req) => {
           Users.insertOne({
             email,
             registrationDate,
+            loggedIn: true,
             hashed,
             ip: getIp(req),
             userAgent: req.get('user-agent'),
