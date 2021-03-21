@@ -1,27 +1,29 @@
-@import './reset';
-@import './header';
-@import './fonts';
-@import './modal';
-@import './layout';
-@import './forms';
-@import './footer';
+@import "./reset";
+@import "./header";
+@import "./fonts";
+@import "./modal";
+@import "./layout";
+@import "./forms";
+@import "./footer";
 
 html,
 body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	background-color: white;
-	display:block;
-	// overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  display: block;
+  // overflow-x: hidden;
 }
 
 .app {
-	text-align: left;
-	width: 1000px;
-	margin:0 auto;
-	.user h3:hover {
-		color:green;
-		cursor: pointer;
-	}
+  text-align: left;
+  width: 1000px;
+  margin: 0 auto;
+  .user h3:hover {
+    color: green;
+    cursor: pointer;
+  }
+  .gradient {
+  }
 }
