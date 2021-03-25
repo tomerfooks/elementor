@@ -18,12 +18,36 @@ body {
 
 .app {
   text-align: left;
-  width: 1000px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   .user h3:hover {
     color: green;
     cursor: pointer;
   }
-  .gradient {
+  .texteffect {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .shadows {
+    position: relative;
+    padding-top: 20px;
+    span {
+      text-transform: uppercase;
+      text-shadow: -15px 5px 20px #ddd;
+      color: white;
+      font-weight: bold;
+      font-size: 120px;
+      letter-spacing: -0.05em;
+      font-family: "Anton", Arial, sans-serif;
+      user-select: none;
+      text-transform: uppercase;
+      transition: all 0.25s ease-out;
+    }
+  }
+  .shadows:hover {
+    text-shadow: -16px 6px 15px #ced0d3;
   }
 }

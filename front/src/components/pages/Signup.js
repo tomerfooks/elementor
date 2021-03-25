@@ -72,10 +72,8 @@ export default function Signup() {
           type="password"
         />
 
-        <button
-          className={email && pass && pass2 ? "gradient" : "disabled"}
-          onClick={register}>
-          REGISTER
+        <button className={"signupButton"} onClick={register}>
+          Register
         </button>
         <h6>{error}</h6>
       </form>

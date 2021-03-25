@@ -1,3 +1,4 @@
-import React from 'react'
+//THIS FILES CREATES A CONTEXT THAT CAN BE SHARED BETWEEN COMPONENTS AND TO INCLUDE NECESSARY INFORMATION SUCH AS THE CURRENTLY LOGGEDIN USER
+import React from "react"
 const AppContext = React.createContext()
 export default AppContext
